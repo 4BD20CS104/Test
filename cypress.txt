@@ -1,0 +1,51 @@
+describe('template spec', () => {
+  it('passes', () => {
+    cy.visit('http://localhost:8086/bus_booking/index.php?page=admin')
+  })
+  it('login Page', () => {
+    cy.visit('http://localhost:8086/bus_booking/index.php?page=admin')
+    cy.get(':nth-child(1) > .form-control').type("admin")
+    cy.get(':nth-child(2) > .form-control').type("admin123")
+    cy.get('.text-right > .btn').click()
+
+
+
+  })
+  it('Checking a bus option', () => {
+    cy.visit('http://localhost:8086/bus_booking/index.php?page=schedule')
+    cy.get('.odd > :nth-child(9) > center > .btn > strong').click()
+    cy.get('#uni_modal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click()
+
+
+  })
+  it('Verify User data', () => {
+    cy.visit('http://localhost:8086/bus_booking/')
+    cy.get('#book_now').click()
+    cy.get('#from_location').select('1')
+    cy.get('#to_location').select('1')
+    cy.get('#departure_time').type('2020-09-11')
+    cy.get('#uni_modal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click()
+    cy.get('.btn > strong').click()
+    cy.get('#name').type('Nikil')
+    cy.get('#qty').type('2')
+    cy.get('#uni_modal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click()
+
+
+  })
+  it('Verify User data', () => {
+    cy.visit('http://localhost:8086/bus_booking/')
+    cy.get('#book_now').click()
+    cy.get('#from_location').select('1')
+    cy.get('#to_location').select('1')
+    cy.get('#departure_time').type('2020-09-11')
+    cy.get('#uni_modal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click()
+    cy.get('.btn > strong').click()
+    cy.get('#name').type('Farhan')
+    cy.get('#qty').type('1')
+    cy.get('#uni_modal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click()
+
+
+  })
+
+
+})
